@@ -43,14 +43,20 @@ nsfw_keywords = {
 exception_keywords = ["nxivm", "classroom", "assassination", "geass"]
 
 async def check_anti_nsfw(new_name, message):
-    lower_name = new_name.lower()
+    """Checks if the provided new name contains NSFW content based on predefined keywords."""
+    
+    lower_name = new_name.lower()  # Convert the new name to lowercase once for optimization
+
+    # Check for exception keywords first
     for keyword in exception_keywords:
         if keyword.lower() in lower_name:
             return False  # Allow the filename if it contains an exception keyword
     
+    # Check NSFW categories
     for category, keywords in nsfw_keywords.items():
         for keyword in keywords:
             if keyword.lower() in lower_name:
                 await message.reply_text("You can't rename files with NSFW content.")
-                return True
-    return False
+                return True  # Block the file renaming due to NSFW content
+    
+    return False  # Return False if no NSFW content is detected
