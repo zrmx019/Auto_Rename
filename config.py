@@ -60,7 +60,7 @@ class Txt(object):
 # Thumbnail setup guide (continued)
     THUMBNAIL_TXT += """ ᴛʜᴜᴍʙɴᴀɪʟ ᴡᴏʀᴋ ᴏᴠᴇʀᴋᴏᴏᴋ ᴠᴀʀɪᴀʙʟᴇꜱ ᴏɴᴇ ᴛʜᴜᴍʙɴᴀɪʟ.
 
-    ➻ ᴜsᴇ ᴛʜᴇ /autorename ᴠᴀʀɪᴀʙʟᴇ ᴏɴᴇ ᴄᴜsᴛᴏᴍ ᴄᴏᴍᴍᴀɴᴅᴇᴅ"""
+    # ➻ ᴜsᴇ ᴛʜᴇ /autorename ᴠᴀʀɪᴀʙʟᴇ ᴏɴᴇ ᴄᴜsᴛᴏᴍ ᴄᴏᴍᴍᴀɴᴅᴇᴅ
 
     # Error messages for the bot
     ERROR_TXT = """<b>⚠️ Something went wrong! Try again or contact the administrator.</b>"""
