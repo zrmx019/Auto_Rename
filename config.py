@@ -58,7 +58,7 @@ class Txt(object):
 ➲ /start: ꜱᴇɴᴅ ᴀɴʏ ᴘʜᴏᴛᴏ ᴛᴏ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ꜱᴇᴛ ɪᴛ ᴀꜱ ᴀ ᴛʜᴜᴍʙɴᴀɪʟ.. ➲ /del_thumb: ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴏʟᴅ ᴛʜᴜᴍʙɴᴀɪʟ. ➲ /view_thumb: ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅꜱ
 
 # Thumbnail setup guide (continued)
-    THUMBNAIL_TXT += """ ᴛʜᴜᴍʙɴᴀɪʟ ᴡᴏʀᴋ ᴏᴠᴇʀᴋᴏᴏᴋ ᴠᴀʀɪᴀʙʟᴇꜱ ᴏɴᴇ ᴛʜᴜᴍʙɴᴀɪʟ.
+    THUMBNAIL_TXT = """ Thumbnail work... """
 
     # ➻ ᴜsᴇ ᴛʜᴇ /autorename ᴠᴀʀɪᴀʙʟᴇ ᴏɴᴇ ᴄᴜsᴛᴏᴍ ᴄᴏᴍᴍᴀɴᴅᴇᴅ
 
