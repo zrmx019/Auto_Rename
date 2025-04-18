@@ -1,49 +1,56 @@
 {
     "name": "Auto Renamer Bot",
-    "description": "Telegram Auto File Renamer Bot ",
+    "description": "Telegram Auto File Renamer Bot",
     "logo": "https://graph.org/file/2f461540c83b362772714.jpg",
-    "keywords": ["Auto Renamer Bot", "Mongo DB"],    
+    "keywords": ["Auto Renamer Bot", "Mongo DB"],
     "repository": "https://github.com/JishuDeveloper/Auto-Rename-Bot",
     "env": {
         "API_ID": {
-            "description": "Your APP ID From my.telegram.org ",
-            "value": ""
+            "description": "Your APP ID from my.telegram.org",
+            "value": "",
+            "required": true
         },
         "API_HASH": {
-            "description": "Your API Hash From my.telegram.org ",
-            "value": ""
+            "description": "Your API Hash from my.telegram.org",
+            "value": "",
+            "required": true
         },
         "WEBHOOK": {
-            "description": "if your server is need web service! value = True else value = False",
+            "description": "If your server needs a web service, set to True, otherwise set to False",
             "value": "False"
         },
         "FORCE_SUB": {
-            "description": "Your force sub channel user name without [@] ",
+            "description": "Your force subscription channel username (without [@])",
             "value": "",
-            "required": false 
+            "required": false
         },
         "BOT_TOKEN": {
-            "description": "Your Bot Token From @BotFather",
-            "value": ""
+            "description": "Your Bot Token from @BotFather",
+            "value": "",
+            "required": true
         },
         "ADMIN": {
-            "description":"Add Your User ID multiple is use space to split"
+            "description": "Add your User ID(s) separated by space if there are multiple admins",
+            "value": "",
+            "required": true
         },
         "LOG_CHANNEL": {
-            "description":"Bot Log Sending Channel (just create a private channel and add bot to admin and take channel id to add this variable) ⚠️ id startswith -100 must",
-            "required": false           
+            "description": "The Bot's log sending channel (private channel, add bot as admin, and get channel ID starting with -100)",
+            "value": "",
+            "required": false
         },
         "DB_URL": {
-            "description": "Your Mongo DB URL Obtained From mongodb.com",
-            "value": ""
+            "description": "Your MongoDB URL from mongodb.com",
+            "value": "",
+            "required": true
         },
-        "DB_NAME":{ 
-            "description":"Your Mongo DB Database Name ",
+        "DB_NAME": {
+            "description": "Your MongoDB database name",
             "value": "",
             "required": false
         },
         "START_PIC": {
-            "description": "Your Bot start cmd Pic from @MT_TelegraPH_Bot",
+            "description": "Your bot's start picture from @MT_TelegraPH_Bot",
             "value": "",
             "required": false
         }
