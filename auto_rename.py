@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from helper.database import codeflixbots
+from helper.database import codeflixbots  # Ensure this is correctly set up to interact with your database
 
 @Client.on_message(filters.private & filters.command("autorename"))
 async def auto_rename_command(client, message):
@@ -18,16 +18,23 @@ async def auto_rename_command(client, message):
 
     format_template = command_parts[1].strip()
 
-    # Save the format template in the database
-    await codeflixbots.set_format_template(user_id, format_template)
+    try:
+        # Save the format template in the database
+        await codeflixbots.set_format_template(user_id, format_template)
 
-    # Send confirmation message with the template in monospaced font
-    await message.reply_text(
-        f"**🌟 Fantastic! You're ready to auto-rename your files.**\n\n"
-        "📩 Simply send the file(s) you want to rename.\n\n"
-        f"**Your saved template:** `{format_template}`\n\n"
-        "Remember, it might take some time, but I'll ensure your files are renamed perfectly!✨"
-    )
+        # Send confirmation message with the template in monospaced font
+        await message.reply_text(
+            f"**🌟 Fantastic! You're ready to auto-rename your files.**\n\n"
+            "📩 Simply send the file(s) you want to rename.\n\n"
+            f"**Your saved template:** `{format_template}`\n\n"
+            "Remember, it might take some time, but I'll ensure your files are renamed perfectly!✨"
+        )
+    except Exception as e:
+        # Error handling if the database operation fails
+        await message.reply_text(
+            f"⚠️ **Something went wrong!** Could not save the template. Try again later.\n\n"
+            f"Error: {str(e)}"
+        )
 
 
 @Client.on_message(filters.private & filters.command("setmedia"))
@@ -46,6 +53,7 @@ async def set_media_command(client, message):
         quote=True
     )
 
+
 @Client.on_callback_query(filters.regex(r"^setmedia_"))
 async def handle_media_selection(client, callback_query: CallbackQuery):
     """Process the user's media type selection with flair and confirmation."""
@@ -53,7 +61,8 @@ async def handle_media_selection(client, callback_query: CallbackQuery):
     media_type = callback_query.data.split("_", 1)[1].capitalize()  # Extract and capitalize media type
 
     try:
-        await weooanimes.set_media_preference(user_id, media_type.lower())
+        # Assuming 'codeflixbots' or the appropriate database helper is used here
+        await codeflixbots.set_media_preference(user_id, media_type.lower())
 
         await callback_query.answer(f"Locked in: {media_type} 🎉")
         await callback_query.message.edit_text(
@@ -62,9 +71,10 @@ async def handle_media_selection(client, callback_query: CallbackQuery):
             f"Ready to roll with your choice!"
         )
     except Exception as e:
+        # Error handling for any issues with setting media preference
         await callback_query.answer("Oops, something went wrong! 😅")
         await callback_query.message.edit_text(
             f"⚠️ **Error Setting Preference** ⚠️\n"
             f"Couldn’t set {media_type} right now. Try again later!\n"
             f"Details: {str(e)}"
-  )
+    )
